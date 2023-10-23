@@ -84,7 +84,7 @@ fun CreateBizCard() {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(500.dp)
+                    .height(250.dp)
                     .padding(8.dp),
                 verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -100,14 +100,17 @@ fun CreateBizCard() {
                 )
                 // Information
                 CreateInfo()
-                // Button
+            }
+            // Button
+            Column(modifier = Modifier.fillMaxWidth().fillMaxHeight().padding(8.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
                 Button(onClick = {
                     buttonClickedState.value = !buttonClickedState.value
-
                 }) {
                     Text(text = "Protfolio")
                 }
-                if (buttonClickedState.value){
+                if (buttonClickedState.value) {
                     Content()
                 } else {
                     Box {
@@ -115,6 +118,7 @@ fun CreateBizCard() {
                     }
                 }
             }
+
         }
     }
 }
@@ -154,7 +158,7 @@ fun Content() {
 // Protfolio
 @Composable
 fun Protfolio(data: List<String>) {
-    LazyColumn {
+    LazyColumn(modifier = Modifier.padding(16.dp)) {
         items(data) { item ->
             Text(item)
 
