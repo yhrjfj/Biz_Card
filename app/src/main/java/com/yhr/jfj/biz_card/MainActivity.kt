@@ -27,6 +27,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -75,7 +76,9 @@ fun CreateBizCard() {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 CreateImageProfile()
-                Divider()
+                Divider(modifier = Modifier.fillMaxWidth().shadow(1.dp),
+                    thickness = 1.5.dp,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.1f))
             }
         }
     }
