@@ -1,6 +1,7 @@
 package com.yhr.jfj.biz_card
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
@@ -19,6 +20,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
@@ -72,7 +74,7 @@ fun CreateBizCard() {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(300.dp)
+                    .height(400.dp)
                     .padding(8.dp),
                 verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -88,6 +90,13 @@ fun CreateBizCard() {
                 )
                 // Information
                 CreateInfo()
+                // Button
+                Button(onClick = {
+                    Log.d("Clicked", "Button has been clicked")
+                }) {
+                    Text(text = "Protfolio")
+            }
+
             }
         }
     }
