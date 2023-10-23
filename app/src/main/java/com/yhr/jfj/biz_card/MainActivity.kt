@@ -50,7 +50,7 @@ fun CreateBizCard() {
     ) {
         Card(
             elevation = CardDefaults.cardElevation(5.dp),
-            modifier = Modifier
+            modifier = Modifier.width(200.dp).height(390.dp)
                 .padding(16.dp)
                 .border(1.5.dp, Color.White, shape = RoundedCornerShape(10.dp)),
             colors = CardDefaults.cardColors(Color.White)
