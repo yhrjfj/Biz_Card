@@ -6,10 +6,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -36,8 +38,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.yhr.jfj.biz_card.ui.theme.Biz_CardTheme
@@ -102,9 +107,13 @@ fun CreateBizCard() {
                 CreateInfo()
             }
             // Button
-            Column(modifier = Modifier.fillMaxWidth().fillMaxHeight().padding(8.dp),
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight()
+                    .padding(8.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
+            ) {
                 Button(onClick = {
                     buttonClickedState.value = !buttonClickedState.value
                 }) {
@@ -160,7 +169,27 @@ fun Content() {
 fun Protfolio(data: List<String>) {
     LazyColumn(modifier = Modifier.padding(16.dp)) {
         items(data) { item ->
-            Text(item)
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                shape = RectangleShape,
+                elevation = CardDefaults.cardElevation(5.dp)
+            ) {
+                Row() {
+                    // Image
+                    CreateImageProfile(modifier = Modifier.size(70.dp))
+                    // Details
+                    Column(
+                        modifier = Modifier
+                            .padding(5.dp)
+                            .align(alignment = Alignment.CenterVertically)
+                    ) {
+                        Text(text = item, style = MaterialTheme.typography.titleSmall)
+                        Text(text = "For code check GitHub")
+                    }
+                }
+            }
 
         }
     }
@@ -195,7 +224,7 @@ private fun CreateInfo() {
 @Composable
 private fun CreateImageProfile(modifier: Modifier = Modifier) {
     Surface(
-        modifier = Modifier
+        modifier = modifier
             .size(150.dp)
             .padding(5.dp),
         shape = CircleShape,
@@ -204,6 +233,7 @@ private fun CreateImageProfile(modifier: Modifier = Modifier) {
         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
     ) {
         Image(
+            modifier = modifier,
             painter = painterResource(id = R.drawable.main),
             contentDescription = "Picture",
             contentScale = ContentScale.Crop
