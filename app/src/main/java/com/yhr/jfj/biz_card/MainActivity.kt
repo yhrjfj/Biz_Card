@@ -92,7 +92,7 @@ fun CreateBizCard() {
         }
     }
 }
-
+//Information function
 @Composable
 private fun CreateInfo() {
     Column(
@@ -116,7 +116,7 @@ private fun CreateInfo() {
         )
     }
 }
-
+// Image function
 @Composable
 private fun CreateImageProfile(modifier: Modifier = Modifier) {
     Surface(
