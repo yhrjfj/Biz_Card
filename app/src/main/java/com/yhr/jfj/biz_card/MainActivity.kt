@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -95,12 +96,40 @@ fun CreateBizCard() {
                     Log.d("Clicked", "Button has been clicked")
                 }) {
                     Text(text = "Protfolio")
-            }
+                }
 
             }
         }
     }
 }
+
+@Preview
+@Composable
+fun Content() {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+            .padding(5.dp)
+    ) {
+        Surface(
+            modifier = Modifier
+                .fillMaxHeight()
+                .fillMaxWidth(),
+            shape = RoundedCornerShape(corner = CornerSize(6.dp)),
+            border = BorderStroke(width = 2.dp, color = Color.LightGray),
+            shadowElevation = 5.dp
+        ) {
+            Protfolio(data = listOf("Project 1", "Project 2", "Project 3"))
+        }
+    }
+}
+// Protfolio
+@Composable
+fun Protfolio(data: List<String>) {
+    Text(text = "Projetc go here")
+}
+
 //Information function
 @Composable
 private fun CreateInfo() {
@@ -125,6 +154,7 @@ private fun CreateInfo() {
         )
     }
 }
+
 // Image function
 @Composable
 private fun CreateImageProfile(modifier: Modifier = Modifier) {
@@ -145,7 +175,7 @@ private fun CreateImageProfile(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     Biz_CardTheme {
