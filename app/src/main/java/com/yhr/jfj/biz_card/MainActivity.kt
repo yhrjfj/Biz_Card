@@ -8,6 +8,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -71,16 +72,48 @@ fun CreateBizCard() {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(300.dp).padding(8.dp),
+                    .height(300.dp)
+                    .padding(8.dp),
                 verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                // Picture
                 CreateImageProfile()
-                Divider(modifier = Modifier.fillMaxWidth().shadow(1.dp),
+                Divider(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .shadow(1.dp),
                     thickness = 1.5.dp,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.1f))
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.1f)
+                )
+                // Information
+                CreateInfo()
             }
         }
+    }
+}
+
+@Composable
+private fun CreateInfo() {
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            text = "YHRJFJ",
+            style = MaterialTheme.typography.headlineLarge,
+            color = MaterialTheme.colorScheme.primary
+        )
+        Text(
+            text = "GitHub",
+            modifier = Modifier.padding(5.dp),
+            style = MaterialTheme.typography.titleMedium
+        )
+        Text(
+            text = "Kotlin With Jetpack Composer",
+            modifier = Modifier.padding(5.dp),
+        )
     }
 }
 
